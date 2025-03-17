@@ -35,6 +35,7 @@ body {
     line-height: 1;
 }
 
+
 ol, ul {
     list-style: none;
 }
@@ -1861,7 +1862,7 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 select:focus,
 textarea:focus {
-    box-shadow: 0 0 0 2px #21b2a6;
+    box-shadow: 0 0 0 2px #666666;
 }
 
 select {
@@ -1958,7 +1959,7 @@ input[type="radio"]:checked + label:before {
 
 input[type="checkbox"]:focus + label:before,
 input[type="radio"]:focus + label:before {
-    box-shadow: 0 0 0 2px #21b2a6;
+    box-shadow: 0 0 0 2px #666666;
 }
 
 input[type="checkbox"] + label:before {
@@ -2080,15 +2081,15 @@ input[type="radio"] + label:before {
 }
 
 .icon.style1 {
-    color: #00ffcc;
+    color: #121212; /* Firebrick */
 }
 
 .icon.style2 {
-    color: #00f0ff;
+    color: #9E1C1C; /* Rosso più scuro e opaco */
 }
 
 .icon.style3 {
-    color: #76ddff;
+    color: #801818; /* Ancora più scuro per una variazione armoniosa */
 }
 
 /* Image */
@@ -2489,7 +2490,7 @@ input[type="reset"].primary,
 input[type="button"].primary,
 button.primary,
 .button.primary {
-    background-color: #ed4933;
+    background-color: #B22222;
     box-shadow: none !important;
     color: #ffffff !important;
 }
@@ -2499,7 +2500,7 @@ input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
-    background-color: #ef5e4a !important;
+    background-color: #D32F2F !important;
 }
 
 input[type="submit"].primary:active,
@@ -2507,7 +2508,7 @@ input[type="reset"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-    background-color: #eb341c !important;
+    background-color: #D32F2F !important;
 }
 
 input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -2606,7 +2607,7 @@ button:disabled,
 
 .features li:before {
     display: block;
-    color: #00ffcc;
+    color: #808080;
     position: absolute;
     left: 1.75em;
     top: 2.75em;
@@ -2819,7 +2820,7 @@ button:disabled,
 }
 
 .wrapper.style1 {
-    background-color: #21b2a6;
+    background-color: #666666;
     color: #c8ece9;
 }
 
@@ -2844,7 +2845,7 @@ button:disabled,
 }
 
 .wrapper.style1 header p {
-    color: #a6e0db;
+    color: #cccccc;
 }
 
 .wrapper.style1 header.major h2, .wrapper.style1 header.major h3, .wrapper.style1 header.major h4, .wrapper.style1 header.major h5, .wrapper.style1 header.major h6 {
@@ -2873,7 +2874,7 @@ button:disabled,
 
 .wrapper.style1 select option {
     color: #ffffff;
-    background: #21b2a6;
+    background: #666666;
 }
 
 .wrapper.style1 input[type="checkbox"] + label,
@@ -2889,30 +2890,31 @@ button:disabled,
 .wrapper.style1 input[type="checkbox"]:checked + label:before,
 .wrapper.style1 input[type="radio"]:checked + label:before {
     background: #ffffff;
-    color: #21b2a6;
+    color: #666666;
 }
 
 .wrapper.style1 ::-webkit-input-placeholder {
-    color: #a6e0db !important;
+    color: #666666 !important;
 }
 
 .wrapper.style1 :-moz-placeholder {
-    color: #a6e0db !important;
+    color: #cccccc !important;
 }
 
 .wrapper.style1 ::-moz-placeholder {
-    color: #a6e0db !important;
+    color: #cccccc !important;
 }
 
 .wrapper.style1 :-ms-input-placeholder {
-    color: #a6e0db !important;
+    color: #cccccc !important;
 }
 
 .wrapper.style1 .formerize-placeholder {
-    color: #a6e0db !important;
+    color: #cccccc !important;
 }
 
 .wrapper.style1 .icon.major {
+    border-color: rgba(0, 0, 0, 0.125);
     border-color: rgba(0, 0, 0, 0.125);
 }
 
@@ -2982,8 +2984,8 @@ button:disabled,
 }
 
 .wrapper.style3 {
-    background-color: #505393;
-    color: #d3d4e4;
+    background-color: #7A1C1C;
+    color: #E8C8C8;
 }
 
 .wrapper.style3 strong, .wrapper.style3 b {
@@ -3035,8 +3037,8 @@ button:disabled,
 }
 
 .wrapper.style3 select option {
-    color: #ffffff;
-    background: #505393;
+    color: #FFFFFF;
+    background: #7A1C1C;
 }
 
 .wrapper.style3 input[type="checkbox"] + label,
@@ -3051,8 +3053,8 @@ button:disabled,
 
 .wrapper.style3 input[type="checkbox"]:checked + label:before,
 .wrapper.style3 input[type="radio"]:checked + label:before {
-    background: #ffffff;
-    color: #505393;
+    background: #FFFFFF;
+    color: #7A1C1C;
 }
 
 .wrapper.style3 ::-webkit-input-placeholder {
@@ -3354,7 +3356,7 @@ button:disabled,
     -ms-transition: -ms-transform 0.5s ease;
     transition: transform 0.5s ease;
     -webkit-overflow-scrolling: touch;
-    background: #21b2a6;
+    background: #666666;
     color: #ffffff;
     height: 100%;
     max-width: 80%;
@@ -3816,7 +3818,7 @@ body.is-preload #banner:after {
 /* Main */
 
 #main > header {
-    padding: 12em 0 10em 0;
+    padding: 8em 0 6em 0;
     background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/banner.jpg");
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/banner.jpg");
     background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/banner.jpg");
@@ -3829,13 +3831,13 @@ body.is-preload #banner:after {
 }
 
 #main > header h2 {
-    font-size: 1.75em;
+    font-size: 1.5em;
     margin: 0 0 0.5em 0;
 }
 
 #main > header p {
     color: inherit;
-    letter-spacing: 0.225em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     top: 0;
 }
@@ -3847,7 +3849,7 @@ body.is-preload #banner:after {
 @media screen and (max-width: 1680px) {
 
     #main > header {
-        padding: 10em 0 8em 0;
+        padding: 7em 0 5em 0;
     }
 
 }
@@ -3855,7 +3857,7 @@ body.is-preload #banner:after {
 @media screen and (max-width: 1280px) {
 
     #main > header {
-        padding: 8em 3em 6em 3em;
+        padding: 6em 2em 4em 2em;
     }
 
 }
@@ -3863,7 +3865,7 @@ body.is-preload #banner:after {
 @media screen and (max-width: 980px) {
 
     #main > header {
-        padding: 10em 3em 8em 3em;
+        padding: 6em 2em 4em 2em;
     }
 
 }
@@ -3871,12 +3873,12 @@ body.is-preload #banner:after {
 @media screen and (max-width: 736px) {
 
     #main > header {
-        padding: 5em 3em 3em 3em;
+        padding: 4em 2em 3em 2em;
     }
 
     #main > header h2 {
         font-size: 1.25em;
-        margin: 0 0 1em 0;
+        margin: 0 0 0.8em 0;
     }
 
 }
