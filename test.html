@@ -39,6 +39,12 @@
     <!-- Main -->
     <article id="main">
         <header>
+            <div class="video-container">
+                <video autoplay loop muted playsinline>
+                    <source src="videos/sls.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="overlay"></div>
             <h3>PROVA DIRETTAMENTE TU IL METODO METALMED</h3>
             <br/>
             <p>Testa il servizio offerta, la qualità del prodotto e le tempistiche di produzione</p>
@@ -63,7 +69,7 @@
             </div>
 
 
-            <form method="post" class="inner" action="#">
+            <form method="post" id="form-section" class="inner">
                 <h4>Form di Contatto</h4>
                 <div class="row gtr-uniform ">
                     <!-- Ragione Sociale -->
@@ -80,37 +86,43 @@
 
                     <!-- Telefono -->
                     <div class="col-6 col-11-xsmall">
-                        <input type="text" name="telefono" id="telefono" value="" placeholder="Telefono" required/>
+                        <input type="text" name="phone" id="phone" value="" placeholder="Telefono" required/>
                     </div>
 
                     <!-- Mail registrazione portale -->
                     <div class="col-6 col-11-xsmall">
-                        <input type="email" name="mail_registrazione" id="mail_registrazione" value=""
+                        <input type="email" name="email" id="email" value=""
                                placeholder="Mail Registrazione Portale" required/>
                     </div>
 
                     <!-- Indirizzo -->
                     <div class="col-12">
-                        <input type="text" name="indirizzo" id="indirizzo" value="" placeholder="Indirizzo" required/>
+                        <input type="text" name="address" id="address" value="" placeholder="Indirizzo" required/>
                     </div>
+
 
                     <!-- Partita IVA -->
                     <div class="col-6 col-11-xsmall">
-                        <input type="text" name="partita_iva" id="partita_iva" value="" placeholder="Partita IVA"
+                        <input type="text" name="piva" id="piva" value="" placeholder="Partita IVA"
                                required/>
                     </div>
 
                     <!-- SDI/PEC -->
                     <div class="col-6 col-11-xsmall">
-                        <input type="text" name="sdi_pec" id="sdi_pec" value="" placeholder="SDI/PEC" required/>
+                        <input type="text" name="email_sdi_pec" id="email_sdi_pec" value="" placeholder="SDI/PEC"
+                               required/>
                     </div>
 
                     <!-- Mail comunicazioni amministrative -->
                     <div class="col-11">
-                        <input type="email" name="mail_comunicazioni" id="mail_comunicazioni" value=""
+                        <input type="email" name="email_admin_communication" id="email_admin_communication" value=""
                                placeholder="Mail Comunicazioni Amministrative" required/>
                     </div>
-
+                    <!-- Message -->
+                    <div class="col-12">
+                                <textarea name="message" id="message" placeholder="Scrivi qui il messaggio"
+                                          rows="6"></textarea>
+                    </div>
                     <!-- Submit and Reset buttons -->
                     <div class="col-11">
                         <ul class="actions">
@@ -150,6 +162,40 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();  // Blocca il comportamento predefinito di invio del form
+
+            const formData = new FormData(form);
+            const jsonData = Object.fromEntries(formData.entries()); // Converte FormData in JSON
+
+            fetch("http://127.0.0.1:8000/marketing/api/contacts/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jsonData),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Errore nell'invio del modulo.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Sostituisci il form con un messaggio di successo
+                    form.innerHTML = `<h4>Grazie per le informazioni!</h4><p>Il tuo messaggio è stato inviato correttamente.<br/> Verrai ricontatto al più presto</p>`;
+                })
+                .catch(error => {
+                    alert("Si è verificato un errore, riprova più tardi.");
+                    console.error("Errore:", error);
+                });
+        });
+    });
+</script>
 
 </body>
 </html>
