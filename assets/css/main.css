@@ -2091,6 +2091,9 @@ input[type="radio"] + label:before {
 .icon.style3 {
     color: #801818; /* Ancora più scuro per una variazione armoniosa */
 }
+.icon.style4 {
+    color: #B22222; /* Rosso più scuro e opaco */
+}
 
 /* Image */
 
