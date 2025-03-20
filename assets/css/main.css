@@ -2091,6 +2091,7 @@ input[type="radio"] + label:before {
 .icon.style3 {
     color: #801818; /* Ancora più scuro per una variazione armoniosa */
 }
+
 .icon.style4 {
     color: #B22222; /* Rosso più scuro e opaco */
 }
@@ -3591,6 +3592,7 @@ body.is-menu-visible #menu {
     position: relative;
     text-align: center;
 }
+
 #banner {
     position: relative;
     width: 100%;
@@ -3757,6 +3759,10 @@ body.is-menu-visible #menu {
 
     #banner h2 {
         font-size: 1.25em;
+    }
+
+    #banner p {
+        z-index: 0;
     }
 
     #banner br {
