@@ -25,9 +25,11 @@
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="test.html">Prova ora</a></li>
+                            <li><a href="orto.html">Ortodonzia</a></li>
                             <li><a href="certifications.html">Certificazioni</a></li>
-                            <li><a href="#">Entra nel portale</a></li>
-                            <li><a href="#">Iscriviti</a></li>
+                            <li><a href="contacts.html">Contatti</a></li>
+                            <li><a href="https://metalmed.infoconsulting.it/login">Entra nel portale</a></li>
+                            <li><a href="test.html#form-section">Iscriviti</a></li>
                         </ul>
                     </div>
                 </li>
@@ -38,7 +40,7 @@
 
     <!-- Main -->
     <article id="main">
-        <header>
+        <header style="height:40%;">
             <div class="video-container">
                 <video autoplay loop muted playsinline>
                     <source src="videos/sls.mp4" type="video/mp4">
@@ -49,8 +51,10 @@
             <br/>
             <p>Testa il servizio offerta, la qualità del prodotto e le tempistiche di produzione</p>
         </header>
-        <!-- Three -->
-        <section id="three" class="wrapper style5 special">
+
+
+        <!-- ONE -->
+        <section class="wrapper style5 special">
             <div class="inner">
                 <h2>PERCHE’ SCEGLIERE METALMED?</h2>
                 <ul class="features">
@@ -147,6 +151,19 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
+<script>
+    // Aggiungi l'evento click a tutte le immagini
+    document.querySelectorAll('.image').forEach(function(image) {
+        image.addEventListener('click', function() {
+            // Se l'immagine è già ingrandita, la rimuoviamo
+            if (image.classList.contains('enlarged')) {
+                image.classList.remove('enlarged');
+            } else {
+                // Altrimenti, aggiungiamo la classe 'enlarged' per ingrandirla
+                image.classList.add('enlarged');
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -40,6 +40,7 @@ footer, header, hgroup, menu, nav, section {
     z-index: 2;
 }
 
+
 .contacts::before {
     content: '';
     position: absolute;
@@ -2154,37 +2155,17 @@ ul.icons.major li {
 }
 
 /* Image */
-
+/* Classe per il contenitore dell'immagine */
 .image {
     border-radius: 3px;
     border: 0;
     display: inline-block;
-    position: relative;
+    position: relative; /* Necessario per posizionare l'immagine ingrandita sopra */
 }
 
 .image img {
     border-radius: 3px;
     display: block;
-}
-
-.image.left {
-    float: left;
-    margin: 0 2em 2em 0;
-    top: 0.25em;
-}
-
-.image.right {
-    float: right;
-    margin: 0 0 2em 2em;
-    top: 0.25em;
-}
-
-.image.left, .image.right {
-    max-width: 40%;
-}
-
-.image.left img, .image.right img {
-    width: 100%;
 }
 
 .image.fit {
@@ -2196,6 +2177,23 @@ ul.icons.major li {
 .image.fit img {
     width: 100%;
 }
+/* Classe per l'immagine ingrandita */
+.image.enlarged {
+    position: absolute; /* Posiziona l'immagine ingrandita sopra il suo contenitore */
+    z-index: 1000; /* La porta sopra le altre immagini */
+    left: 50%; /* Posiziona l'immagine al centro orizzontalmente */
+    bottom: 0; /* Allinea l'immagine al fondo del contenitore */
+    transform: translateX(0) translateY(130%) scale(1.5); /* Centra orizzontalmente e la ingrandisce */
+    transition: transform 0.3s ease;
+}
+
+/* Per evitare che l'immagine ingrandita esca dai bordi */
+.image.enlarged img {
+    width: auto;
+    height: auto;
+}
+
+
 
 /* List */
 
@@ -3670,7 +3668,6 @@ body.is-menu-visible #menu {
 
 #banner .inner {
     position: absolute;
-    top: 15%; /* Posiziona il contenuto nel primo quarto verticale della sezione */
     left: 0;
     right: 0;
     text-align: center; /* Centra il testo orizzontalmente */
@@ -3702,10 +3699,10 @@ body.is-menu-visible #menu {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-    -moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
-    -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
-    -ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    -moz-transition: -moz-transform 0.2s ease, opacity 0.2s ease;
+    -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+    -ms-transition: -ms-transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
     display: inline-block;
     font-size: 5em;
     opacity: 1;
@@ -3715,10 +3712,10 @@ body.is-menu-visible #menu {
 }
 
 #banner h2:before, #banner h2:after {
-    -moz-transition: width 0.85s ease;
-    -webkit-transition: width 0.85s ease;
-    -ms-transition: width 0.85s ease;
-    transition: width 0.85s ease;
+    -moz-transition: width 0.55s ease;
+    -webkit-transition: width 0.55s ease;
+    -ms-transition: width 0.55s ease;
+    transition: width 0.55s ease;
     -moz-transition-delay: 0.25s;
     -webkit-transition-delay: 0.25s;
     -ms-transition-delay: 0.25s;
@@ -3752,14 +3749,14 @@ body.is-menu-visible #menu {
 }
 
 #banner .more {
-    -moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
-    -webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
-    -ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
-    transition: transform 0.75s ease, opacity 0.75s ease;
-    -moz-transition-delay: 3.5s;
-    -webkit-transition-delay: 3.5s;
-    -ms-transition-delay: 3.5s;
-    transition-delay: 3.5s;
+    -moz-transition: -moz-transform 0.45s ease, opacity 0.45s ease;
+    -webkit-transition: -webkit-transform 0.45s ease, opacity 0.45s ease;
+    -ms-transition: -ms-transform 0.45s ease, opacity 0.45s ease;
+    transition: transform 0.45s ease, opacity 0.45s ease;
+    -moz-transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
+    -ms-transition-delay: 0.5s;
+    transition-delay: 0.5s;
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -3799,14 +3796,14 @@ body.is-menu-visible #menu {
 
 #banner:after {
     pointer-events: none;
-    -moz-transition: opacity 3s ease-in-out;
-    -webkit-transition: opacity 3s ease-in-out;
-    -ms-transition: opacity 3s ease-in-out;
-    transition: opacity 3s ease-in-out;
-    -moz-transition-delay: 1.25s;
-    -webkit-transition-delay: 1.25s;
-    -ms-transition-delay: 1.25s;
-    transition-delay: 1.25s;
+    -moz-transition: opacity 2s ease-in-out;
+    -webkit-transition: opacity 2s ease-in-out;
+    -ms-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
+    -moz-transition-delay: 0.55s;
+    -webkit-transition-delay: 0.55s;
+    -ms-transition-delay: 0.5s;
+    transition-delay: 0.55s;
     content: '';
     background: #2e3842;
     display: block;
