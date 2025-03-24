@@ -2181,9 +2181,9 @@ ul.icons.major li {
 .image.enlarged {
     position: absolute; /* Posiziona l'immagine ingrandita sopra il suo contenitore */
     z-index: 1000; /* La porta sopra le altre immagini */
-    left: 50%; /* Posiziona l'immagine al centro orizzontalmente */
-    bottom: 0; /* Allinea l'immagine al fondo del contenitore */
-    transform: translateX(0) translateY(130%) scale(1.5); /* Centra orizzontalmente e la ingrandisce */
+    left: 30%; /* Posiziona l'immagine al centro orizzontalmente */
+    bottom: 20%; /* Allinea l'immagine al fondo del contenitore */
+    transform: translateX(0) translateY(200%) scale(1); /* Centra orizzontalmente e la ingrandisce */
     transition: transform 0.3s ease;
 }
 
