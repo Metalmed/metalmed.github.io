@@ -171,7 +171,7 @@
             const formData = new FormData(form);
             const jsonData = Object.fromEntries(formData.entries()); // Converte FormData in JSON
 
-            fetch("http://127.0.0.1:8000/marketing/api/contacts/", {
+            fetch("https://admin.metalmed.infoconsulting.it/marketing/api/contacts/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
