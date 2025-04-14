@@ -24,12 +24,12 @@
                     <div id="menu">
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="test.html">Prova ora</a></li>
-                            <li><a href="orto.html">Ortodonzia</a></li>
-                            <li><a href="certifications.html">Certificazioni</a></li>
+                            <li><a href="provaora.html">Prova ora</a></li>
+                            <li><a href="ortodonzia.html">Ortodonzia</a></li>
+                            <li><a href="certificazioni.html">Certificazioni</a></li>
                             <li><a href="contacts.html">Contatti</a></li>
                             <li><a href="https://metalmed.infoconsulting.it/login">Entra nel portale</a></li>
-                            <li><a href="test.html#form-section">Iscriviti</a></li>
+                            <li><a href="provaora.html#form-section">Iscriviti</a></li>
                         </ul>
                     </div>
                 </li>
@@ -39,7 +39,7 @@
 
     <!-- Main -->
     <article id="main">
-        <header  style="height: 50%">
+        <header style="height: 50%">
             <div class="video-container">
                 <video autoplay loop muted playsinline>
                     <source src="videos/sls.mp4" type="video/mp4">
@@ -128,6 +128,9 @@
                     <div class="col-11">
                         <ul class="actions">
                             <li><input type="submit" value="Invia Messaggio" class="primary"/></li>
+                            <li>
+                                <div id="form-message" class="form-message"></div>
+                            </li>
                             <!--                                    <li><input type="reset" value="Reset" /></li>-->
                         </ul>
                     </div>
@@ -164,14 +167,18 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
+        const messageContainer = document.createElement("div");
+        messageContainer.classList.add("form-message");
+        form.appendChild(messageContainer);
 
         form.addEventListener("submit", function (event) {
             event.preventDefault();  // Blocca il comportamento predefinito di invio del form
+            messageContainer.innerHTML = ""; // Pulisce eventuali messaggi precedenti
 
             const formData = new FormData(form);
             const jsonData = Object.fromEntries(formData.entries()); // Converte FormData in JSON
 
-            fetch("https://admin.metalmed.infoconsulting.it/marketing/api/contacts/", {
+            fetch("http://localhost:8000/marketing/api/contacts/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -180,21 +187,36 @@
             })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Errore nell'invio del modulo.");
+                        return response.json().then(errData => {
+                            throw new Error(errData.message || "Errore nell'invio del modulo.");
+                        });
                     }
                     return response.json();
                 })
                 .then(data => {
-                    // Sostituisci il form con un messaggio di successo
-                    form.innerHTML = `<h4>Grazie per le informazioni!</h4><p>Il tuo messaggio è stato inviato correttamente.<br/> Verrai ricontatto al più presto</p>`;
+                    form.innerHTML = `<h4>Grazie per le informazioni!</h4><p>Il tuo messaggio è stato inviato correttamente.<br/> Verrai ricontattato al più presto.</p>`;
                 })
                 .catch(error => {
-                    alert("Si è verificato un errore, riprova più tardi.");
-                    console.error("Errore:", error);
+                    console.log(error);
+                    // Assicurati che error sia effettivamente un oggetto e non un'istanza di Error
+                    if (typeof error === 'object' && error !== null) {
+                        Object.entries(error).forEach(([key, value]) => {
+                            console.log(`${key}: ${value[0]}`); // Stampa il primo errore per ogni campo
+                            messageContainer.innerHTML = `<p style="color: red; font-weight: bold;">Errore in ${key}: ${value[0]}</p>`;
+                        });
+                    } else {
+                        // Se error non è l'oggetto atteso, mostra il messaggio
+                        messageContainer.innerHTML = `<p style="color: red; font-weight: bold;">Errore: ${error}</p>`;
+                    }
+                    messageContainer.innerHTML = `<p style="color: red; font-weight: bold;">${error}</p>`;
                 });
+
+
         });
     });
+
 </script>
+
 
 </body>
 </html>
